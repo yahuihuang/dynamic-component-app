@@ -34,7 +34,8 @@ export class PageBuilderService {
     } else if (page.componentType === 'checkbox') {
       return new AddComponent(CheckboxComponent, page, page.value);
     } else if (page.componentType === 'radio') {
-      return new AddComponent(RadioComponent, page, page.value);
+      let radioComponent = new AddComponent(RadioComponent, page, page.value);
+      return radioComponent;
     } else if (page.componentType === 'textarea') {
       return new AddComponent(TextareaComponent, page, page.value);
     }

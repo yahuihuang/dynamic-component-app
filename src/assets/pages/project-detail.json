@@ -34,6 +34,21 @@
             "disabled": false
         },
         {
+          "id": "myRadio",
+          "name": "myRadio",
+          "componentType": "radio",
+          "label": "測試Radio",
+          "styleClass": "mt-1",
+          "labelClass": "ms-2",
+          "value": "2",
+          "radioOptionList": [
+              { "key": "1", "value": "測試1" },
+              { "key": "2", "value": "<span style='font-weight:bold; color: blue'>測試2</span>" }
+          ],
+          "visible": true,
+          "disabled": false
+        },
+        {
             "id": "projectFeedback",
             "name": "projectFeedback",
             "componentType": "textarea",

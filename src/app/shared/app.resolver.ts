@@ -14,7 +14,7 @@ import { Routes } from './routes';
   providedIn: 'root'
 })
 export class AppResolver implements Resolve<any> {
-  
+
   constructor(
     private http: HttpClient,
     private pageBuilderService: PageBuilderService
@@ -22,18 +22,20 @@ export class AppResolver implements Resolve<any> {
 
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<any> {
     const pageName = route.url[0].path;
-
+    console.log('pageName: ' + pageName);
     const option = {
       url: Routes.fetchLocalResponse(pageName),
       // url: Routes.fetchServerResponse(pageName)
     };
 
+    console.log('option.url: ' + option.url)
     return this.http.get(option.url).pipe(
       map(data => this.onSuccess(data))
     );
   }
 
   private onSuccess(data: any) {
+    console.log(data.pageElements);
     return this.pageBuilderService.buildPage(data.pageElements);
   }
 }

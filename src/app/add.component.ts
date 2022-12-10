@@ -6,4 +6,8 @@ export class AddComponent {
         public config: any,
         public data: string
     ) {}
+
+    getData(): string {
+      return 'getData() -> AddComponet';
+    }
 }

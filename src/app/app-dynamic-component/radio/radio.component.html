@@ -3,8 +3,8 @@
         <ng-container *ngIf="config.label">
             <label [for]="config.id">{{config.label}}</label>
         </ng-container>
-        <div 
-            [ngClass]="config.styleClass ? config.styleClass : ''" 
+        <div
+            [ngClass]="config.styleClass ? config.styleClass : ''"
             *ngFor="let radio of config.radioOptionList; let i = index">
             <input type="radio"
                 class="form-check-input"
@@ -13,8 +13,10 @@
                 [value]="radio.value"
                 [checked]="radio.key === config.value"
                 [disabled]="config.disabled"
+                (change)="handleChange($event)"
             >
-            <label [for]="config.id" [ngClass]="config.labelClass ? config.labelClass : ''">{{radio.value}}</label>
+            <label [for]="config.id" [ngClass]="config.labelClass ? config.labelClass : ''"
+              [innerHTML]="safeHtml(radio.value)"></label>
         </div>
     </div>
 </ng-container>

@@ -1,1 +1,9 @@
-<p>sign works!</p>
+<ul>
+    <li *ngFor="let employee of Employee ">
+        <h3>{{employee.id}}</h3>
+        <p> {{employee.employee_name}} </p>
+        <p> {{employee.employee_salary}} </p>
+        <p> {{employee.employee_age}} </p>
+        <p> {{employee.profile_image}} </p>
+    </li>
+</ul>

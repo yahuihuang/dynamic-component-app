@@ -1,3 +1,4 @@
+import { Signature2Module } from './signature/signature.module';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
@@ -13,8 +14,17 @@ import { RadioComponent } from './app-dynamic-component/radio/radio.component';
 import { TextareaComponent } from './app-dynamic-component/textarea/textarea.component';
 import { AppDynamicComponent } from './app-dynamic-component/app-dynamic.component';
 import { AppUIBuilderComponent } from './app-ui-builder/app-ui-builder.component';
-
+import { FormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 @NgModule({
+  imports: [
+    BrowserModule,
+    BrowserAnimationsModule,
+    FormsModule,
+    HttpClientModule,
+    Signature2Module,
+    AppRoutingModule,
+  ],
   declarations: [
     AppComponent,
     AppComponentHostDirective,
@@ -26,11 +36,6 @@ import { AppUIBuilderComponent } from './app-ui-builder/app-ui-builder.component
     TextareaComponent,
     AppDynamicComponent,
     AppUIBuilderComponent,
-  ],
-  imports: [
-    BrowserModule,
-    HttpClientModule,
-    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

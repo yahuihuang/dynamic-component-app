@@ -12,14 +12,14 @@ const routes: Routes = [
     path: 'project-overview',
     component: AppDynamicComponent,
     resolve: {
-      // page: AppResolver
+      page: AppResolver
     }
   },
   {
     path: 'project-detail',
     component: AppDynamicComponent,
     resolve: {
-      // page: AppResolver
+      page: AppResolver
     }
   }
 ];

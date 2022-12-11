@@ -3,21 +3,24 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "dynamic-component-app": {
+    "epf-signature2": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
           "style": "scss"
+        },
+        "@schematics/angular:application": {
+          "strict": true
         }
       },
       "root": "",
       "sourceRoot": "src",
-      "prefix": "app",
+      "prefix": "tssco",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-angular:browser",
+          "builder": "@angular-builders/custom-webpack:browser",
           "options": {
-            "outputPath": "dist/dynamic-component-app",
+            "outputPath": "dist/epf-signature",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -31,15 +34,22 @@
               "src/styles.scss",
               "node_modules/bootstrap/dist/css/bootstrap.min.css"
             ],
-            "scripts": []
+            "scripts": [],
+            "customWebpackConfig": {
+              "path": "webpack.config.ts"
+            }
           },
           "configurations": {
             "production": {
+              "optimization": false,
+              "aot": true,
+              "buildOptimizer": false,
+              "vendorChunk": true,
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "500kb",
-                  "maximumError": "1mb"
+                  "maximumWarning": "8mb",
+                  "maximumError": "8mb"
                 },
                 {
                   "type": "anyComponentStyle",
@@ -61,19 +71,24 @@
               "vendorChunk": true,
               "extractLicenses": false,
               "sourceMap": true,
-              "namedChunks": true
+              "namedChunks": true,
+              "aot": true
             }
           },
           "defaultConfiguration": "production"
         },
         "serve": {
-          "builder": "@angular-devkit/build-angular:dev-server",
+          "builder": "@angular-builders/custom-webpack:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "dynamic-component-app:build:production"
+              "browserTarget": "epf-signature2:build:production",
+              "customWebpackConfig": {
+                "path": "webpack.config.prod.ts"
+              }
             },
             "development": {
-              "browserTarget": "dynamic-component-app:build:development"
+              "browserTarget": "epf-signature2:build:development",
+              "port": 4203
             }
           },
           "defaultConfiguration": "development"
@@ -81,7 +96,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "dynamic-component-app:build"
+            "browserTarget": "epf-signature2:build"
           }
         },
         "test": {
@@ -114,6 +129,7 @@
       }
     }
   },
+  "defaultProject": "epf-signature2",
   "cli": {
     "schematicCollections": [
       "@angular-eslint/schematics"

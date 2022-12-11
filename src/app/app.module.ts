@@ -25,7 +25,7 @@ import { AppUIBuilderComponent } from './app-ui-builder/app-ui-builder.component
     RadioComponent,
     TextareaComponent,
     AppDynamicComponent,
-    AppUIBuilderComponent
+    AppUIBuilderComponent,
   ],
   imports: [
     BrowserModule,

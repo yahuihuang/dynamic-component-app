@@ -5,17 +5,21 @@ import { AppResolver } from './shared/app.resolver';
 
 const routes: Routes = [
   {
+    path: 'signature2',
+    loadChildren: () => import('./signature/signature.module').then(m => m.Signature2Module),
+  },
+  {
     path: 'project-overview',
     component: AppDynamicComponent,
     resolve: {
-      page: AppResolver
+      // page: AppResolver
     }
   },
   {
     path: 'project-detail',
     component: AppDynamicComponent,
     resolve: {
-      page: AppResolver
+      // page: AppResolver
     }
   }
 ];
